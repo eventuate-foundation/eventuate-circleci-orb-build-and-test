@@ -7,7 +7,7 @@ usage:
   workflows:
     use-my-orb:
       jobs:
-        - eventuate-gradle-build-and-test/build-and-test
+        - eventuate-gradle-build-and-test/build-and-test:
             name: test-build-and-test
             project_name: test-orb
             script: ./gradlew assemble
