@@ -1,4 +1,2 @@
 
-export SDKMAN_DIR=/home/circleci/.sdkman
-
-source "$SDKMAN_DIR/bin/sdkman-init.sh"
+source "/home/circleci/.sdkman/bin/sdkman-init.sh"

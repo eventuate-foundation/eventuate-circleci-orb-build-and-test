@@ -1,13 +1,14 @@
 version: 2.1
 
 description: >
-  Sample orb description
+  Implements build and test steps common to Eventuate projects.
+  Use a cache, and save tests results and container logs
 # What will your orb allow users to accomplish?
 # Descriptions should be short, simple, and informative.
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
-  home_url: "https://www.example.com/docs"
+  home_url: "https://www.github.com/eventuate-foundation/eventuate-circleci-orb-build-and-test"
   source_url: "https://www.github.com/eventuate-foundation/eventuate-circleci-orb-build-and-test"
 
 # If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.

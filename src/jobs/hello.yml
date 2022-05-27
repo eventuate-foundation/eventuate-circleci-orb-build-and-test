@@ -1,3 +1,5 @@
+description: >
+  Implements build and test steps common to Eventuate projects.
 parameters:
   script:
     description: the script to execute
@@ -33,14 +35,18 @@ environment:
   TERM: dumb
 steps:
   - checkout
-  - run: |
-      <<include(scripts/install-java-11.sh)>>
-  - run: cat << parameters.checksum_files >> > /tmp/files_to_checksum
+  - run:
+      name: install java
+      command: <<include(scripts/install-java-11.sh)>>
+  - run:
+      name: create checksum file
+      command: cat << parameters.checksum_files >> > /tmp/files_to_checksum
   - restore_cache:
       keys:
         - << parameters.restore_cache_prefix >><< parameters.project_name >>-{{ checksum "/tmp/files_to_checksum" }}
         - << parameters.restore_cache_prefix >><< parameters.project_name >>-
   - run:
+      name: populate cache
       command: |
          <<include(scripts/setenv-circle-ci.sh)>>
         ./gradlew testClasses
@@ -51,6 +57,7 @@ steps:
         - ~/.m2
       key: << parameters.project_name >>--{{ checksum "/tmp/files_to_checksum" }}
   - run:
+      name: build
       command: |
         <<include(scripts/setenv-circle-ci.sh)>>
         <<parameters.script>>
