@@ -7,7 +7,7 @@ for id in $CONTAINER_IDS ; do
   printf "logs of:\n"
   docker ps -a -f "id=$id"
   printf "\n"
-  printf logs "$id"
+  echo logs "$id"
   printf "--------------------\n"
 done
 
