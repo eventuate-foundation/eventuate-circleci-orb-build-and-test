@@ -14,6 +14,7 @@ workflows:
       - eventuate-gradle-build-and-test/build-and-test:
           name: test-build-and-test
           project_name: test-orb
+          script: ./gradlew assemble
           filters: *filters
       - orb-tools/pack:
           filters: *filters
