@@ -25,7 +25,6 @@ workflows:
           requires:
             - test-build-and-test
             - orb-tools/pack
-            - command-tests
           context: orb-publishing
           filters:
             branches:
