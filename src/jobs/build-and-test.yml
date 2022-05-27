@@ -48,7 +48,7 @@ steps:
   - run:
       name: populate cache
       command: |
-         <<include(scripts/setenv-circle-ci.sh)>>
+        <<include(scripts/setenv-circle-ci.sh)>>
         ./gradlew testClasses
         <<parameters.maven_cache_command>>
   - save_cache:
