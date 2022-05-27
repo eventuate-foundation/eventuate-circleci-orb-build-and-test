@@ -1,0 +1,13 @@
+description: >
+  Sample example description.
+usage:
+  version: 2.1
+  orbs:
+    eventuate-gradle-build-and-test: eventuate_io/eventuate-gradle-build-and-test@1.2.3
+  workflows:
+    use-my-orb:
+      jobs:
+        - eventuate-gradle-build-and-test/build-and-test
+          name: test-build-and-test
+          project_name: test-orb
+          script: ./gradlew assemble
