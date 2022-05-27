@@ -1,0 +1,11 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java-library'
+
+repositories {
+    mavenCentral()
+}
