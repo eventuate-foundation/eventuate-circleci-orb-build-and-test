@@ -8,6 +8,10 @@ parameters:
     description: the resource class
     type: string
     default: 'medium'
+  gradle_cache_command:
+    description: gradle command to run
+    type: string
+    default: './gradlew testClasses'
   maven_cache_command:
     description: maven command to run
     type: string
@@ -49,6 +53,7 @@ steps:
       name: populate cache
       environment:
         MAVEN_CACHE_COMMAND: <<parameters.maven_cache_command>>
+        GRADLE_CACHE_COMMAND: <<parameters.gradle_cache_command>>
       command: <<include(scripts/populate-cache.sh)>>
   - save_cache:
       paths:

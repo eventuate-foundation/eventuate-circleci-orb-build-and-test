@@ -2,6 +2,6 @@
 
 source "/home/circleci/.sdkman/bin/sdkman-init.sh"
 
-./gradlew testClasses
-
 $MAVEN_CACHE_COMMAND
+
+$GRADLE_CACHE_COMMAND
