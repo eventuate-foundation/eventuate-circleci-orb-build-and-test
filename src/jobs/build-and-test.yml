@@ -4,6 +4,10 @@ parameters:
   script:
     description: the script to execute
     type: string
+  machine_image:
+    description: machine image
+    type: string
+    default: 'ubuntu-2004:202101-01'
   resource_class:
     description: the resource class
     type: string
@@ -29,7 +33,7 @@ parameters:
     type: string
     default: ''
 machine:
-  image: ubuntu-2004:202101-01
+  image: <<parameters.machine_image>>
   docker_layer_caching: true
 resource_class: <<parameters.resource_class>>
 working_directory: ~/<< parameters.project_name >>
