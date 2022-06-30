@@ -18,7 +18,7 @@ workflows:
           filters: *filters
       - eventuate-gradle-build-and-test/build-and-test:
           name: test-build-and-test-arm
-          machine_image: ubuntu-2204:current
+          machine_image: ubuntu-2004:current
           resource_class: arm.large
           project_name: test-orb
           script: ./build-and-test-all-example.sh
