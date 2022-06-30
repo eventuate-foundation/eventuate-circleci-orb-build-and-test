@@ -16,6 +16,13 @@ workflows:
           project_name: test-orb
           script: ./build-and-test-all-example.sh
           filters: *filters
+      - eventuate-gradle-build-and-test/build-and-test:
+          name: test-build-and-test-arm
+          machine_image: ubuntu-2204:2022.04.1
+          resource_class: arm.large
+          project_name: test-orb
+          script: ./build-and-test-all-example.sh
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -24,6 +31,7 @@ workflows:
           pub-type: production
           requires:
             - test-build-and-test
+            - test-build-and-test-arm
             - orb-tools/pack
           context: orb-publishing
           filters:
