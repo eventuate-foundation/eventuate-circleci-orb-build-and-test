@@ -22,5 +22,5 @@ done
 echo IMAGE ARCHITECTURES
 
 for image in $(docker image ls --format '{{.Repository}}:{{.Tag}}' | grep -v none) ; do
-  echo $(docker inspect $image | jq -r '.[0].Architecture') $image 
+  echo "$(docker inspect $image | jq -r '.[0].Architecture')" $image
 done
