@@ -19,6 +19,16 @@ for name in $(docker ps -a --format "{{.Names}}") ; do
   docker logs "$name" > "$HOME/container-logs/${name}.log"
 done
 
+echo DOCKER version
+
+echo DOCKER:
+
+docker version
+
+echo DOCKER-COMPOSE:
+
+docker-compose version
+
 echo IMAGE ARCHITECTURES
 
 for image in $(docker image ls --format '{{.Repository}}:{{.Tag}}' | grep -v none) ; do
