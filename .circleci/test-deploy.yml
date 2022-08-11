@@ -21,7 +21,7 @@ workflows:
           machine_image: ubuntu-2004:current
           resource_class: arm.large
           project_name: test-orb
-          script: ./build-and-test-all-example.sh
+          script: SOME_ENV_VAR=xxx ./build-and-test-all-example.sh
           filters: *filters
       - orb-tools/pack:
           filters: *filters
