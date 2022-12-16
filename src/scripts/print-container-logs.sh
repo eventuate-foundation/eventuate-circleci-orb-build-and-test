@@ -8,6 +8,7 @@ for id in $CONTAINER_IDS ; do
   docker ps -a -f "id=$id"
   printf "\n"
   echo logs "$id"
+  docker logs "$id" || echo docker logs failed for "$id"
   printf "\n--------------------\n"
 done
 
@@ -16,7 +17,7 @@ mkdir -p ~/container-logs
 docker ps -a > ~/container-logs/containers.txt
 
 for name in $(docker ps -a --format "{{.Names}}") ; do
-  docker logs "$name" > "$HOME/container-logs/${name}.log"
+  (docker logs "$name" || echo docker logs failed for "$name") > "$HOME/container-logs/${name}.log"
 done
 
 echo DOCKER version
