@@ -63,7 +63,7 @@ steps:
       paths:
         - ~/.gradle
         - ~/.m2
-      key: << parameters.project_name >>--{{ checksum "/tmp/files_to_checksum" }}
+      key: << parameters.project_name >>-{{ checksum "/tmp/files_to_checksum" }}
   - run:
       name: build
       environment:
