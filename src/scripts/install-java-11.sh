@@ -16,4 +16,4 @@ for i in $(seq 1 $max_retries); do
 done
 
 source "/home/circleci/.sdkman/bin/sdkman-init.sh"
-sdk install java "$(sdk list java | grep -E  " $JAVA_VERSION_TO_INSTALL[0-9.]*-zulu" | head -1 | cut -f6 -d\| | awk '{$1=$1;print}')"
+sdk install java "$(sdk list java | grep -E  " ${JAVA_VERSION_TO_INSTALL}[0-9.]*-zulu" | head -1 | cut -f6 -d\| | awk '{$1=$1;print}')"
