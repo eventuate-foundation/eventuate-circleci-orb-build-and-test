@@ -7,7 +7,7 @@ parameters:
   machine_image:
     description: machine image
     type: string
-    default: 'ubuntu-2004:202101-01'
+    default: 'ubuntu-2204:2024.01.1'
   resource_class:
     description: the resource class
     type: string
