@@ -32,6 +32,10 @@ parameters:
     description: set to random value to disable cache restoration
     type: string
     default: ''
+  java_version_to_install:
+    description: java version to install, default is 11
+    type: string
+    default: '11'
 machine:
   image: <<parameters.machine_image>>
   docker_layer_caching: true
@@ -46,6 +50,8 @@ steps:
   - run:
       name: install java
       command: <<include(scripts/install-java-11.sh)>>
+      environment:
+        JAVA_VERSION_TO_INSTALL: <<parameters.java_version_to_install>>
   - run:
       name: create checksum file
       command: cat << parameters.checksum_files >> > /tmp/files_to_checksum
