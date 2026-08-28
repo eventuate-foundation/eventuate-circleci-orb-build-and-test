@@ -1,4 +1,5 @@
 # orb.yml is "packed" from source, and not published directly from the repository.
+**/.hitl
 orb.yml
 .DS_Store
 .gradle
